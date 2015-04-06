@@ -117,7 +117,13 @@ a_function()
 
 # Decorators with arguments (required)
 from functools import wraps
-
+"""
+A side effect of using decorators is that the function that gets wrapped
+loses it’s natural __name__, __doc__, and __module__ attributes. The
+wraps function is used as a decorator that wraps the function that
+a decorator returns, restoring those three attributes to the values
+they would have if the wrapped function was not decorated.
+"""
 
 def argumentative_decorator(gift):
     def func_wrapper(func):
