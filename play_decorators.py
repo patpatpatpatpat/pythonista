@@ -136,3 +136,32 @@ def grateful_function(gift):
 
 grateful_function()
 
+DEFAULT_NAME = 'Pat'
+
+
+def print_name(function=None, name=DEFAULT_NAME):
+    def actual_decorator(function):
+        @wraps(function)
+        def returned_func(*args, **kwargs):
+            print "My name is " + name
+            return function(*args, **kwargs)
+        return returned_func
+
+    if not function:  # User passed in a name argument
+        def waiting_for_func(function):
+            return actual_decorator(function)
+        return waiting_for_func
+    else:
+        return actual_decorator(function)
+
+
+@print_name
+def a_function():
+    print "I like the default name"
+
+@print_name(name='Ed')
+def another_function():
+    print "Hey, new name!"
+
+a_function()
+another_function()
