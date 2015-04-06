@@ -1,4 +1,5 @@
 # Let's play with Python decorators!
+# Definition: a decorator is a function that modifies functions, methods or classes.
 # Source
 # 1. http://www.jeffknupp.com/blog/2013/11/29/improve-your-python-decorators-explained/
 
