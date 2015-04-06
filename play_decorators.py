@@ -113,3 +113,26 @@ def a_function():
     print "I'm a normal function decorated by a decorator which is a class."
 
 a_function()
+
+
+# Decorators with arguments (required)
+from functools import wraps
+
+
+def argumentative_decorator(gift):
+    def func_wrapper(func):
+        @wraps(func)
+        def returned_wrapper(*args, **kwargs):
+            print "I don't like this " + gift + " you gave me!"
+            return func(gift , *args, **kwargs)
+        return returned_wrapper
+    return func_wrapper
+
+
+@argumentative_decorator("sweater")
+def grateful_function(gift):
+    print "I love the " + gift + "! Thank you!"
+
+
+grateful_function()
+
