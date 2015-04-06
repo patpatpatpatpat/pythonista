@@ -96,3 +96,20 @@ class Person(object):
 
 pat = Person()
 print pat.foo
+
+
+# A decorator can be a class
+class IdentityDecorator(object):
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self):
+        print "I'm printed before calling the wrapped function!"
+        self.func()
+
+
+@IdentityDecorator
+def a_function():
+    print "I'm a normal function decorated by a decorator which is a class."
+
+a_function()
