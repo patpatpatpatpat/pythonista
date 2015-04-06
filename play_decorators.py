@@ -43,3 +43,56 @@ markdown_string_italicized = transform_words(
 
 print 'Old string: %s' % markdown_string
 print 'New string: %s' % markdown_string_italicized
+
+
+# Source
+# 1. http://www.brianholdefehr.com/decorators-and-functional-python
+
+
+def logging_decorator(func):
+    def wrapper():
+        wrapper.count += 1
+        print "The function I modify has been called {0} time(s)".format(
+            wrapper.count)
+        func()
+    wrapper.count = 0
+    return wrapper
+
+
+def a_function():
+    print "I'm a normal function."
+
+
+modified_function = logging_decorator(a_function)
+modified_function()
+modified_function()
+
+
+def some_function():
+    print "Please decorate me!"
+
+# Use the decorator function by passing the function we wanted to
+# modify to it, and assigning the result to a variable
+modified_function = logging_decorator(some_function)
+
+# We can achieve the exact same thing with this syntax:
+@logging_decorator
+def some_function():
+    print "Please decorate me!"
+
+
+
+# Class decorators
+foo = ['important', 'foo', 'stuff']
+
+def add_foo(klass):
+    klass.foo = foo
+    return klass
+
+
+@add_foo
+class Person(object):
+    pass
+
+pat = Person()
+print pat.foo
