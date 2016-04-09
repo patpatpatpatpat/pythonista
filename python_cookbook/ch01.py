@@ -12,4 +12,16 @@ Chapter 1
 9. Use `set` and generators to remove duplicates from a sequence while maintaining order
 10. Use `slice` class to avoid mysterious hardcoded indices
 11. Use `collections.Counter` class when determining most frequently occuring items in a sequence. You can also use mathematical operations in instances of them
+12. Use `operator.itemgetter` to sort list of dicts based on one or more of the dict values.
+    `lambda` expressions can be used too, though (but the former is faster).
+13. Use `operator.attrgetter` to sort objects of the same class, but don't natively support comparison operations.
+14. Use `itertools.groupby` (after sorting the data according to the field of interest) to
+    iterate over data in groups
+15. Use list comprehensions or `filter` when you need to extract values or reduce the sequence
+    using some criteria.
+    You can also transform the data at the same time!
+    Example: you can replace the values that don't meet the criteria with a new value instead
+    of discarding them.
+    Also: look into `itertools.compress`
+16. Use dictionary comprehensions when creating a dictionary that is a subset of another dict.
 """
