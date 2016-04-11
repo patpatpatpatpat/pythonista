@@ -24,4 +24,7 @@ Chapter 1
     of discarding them.
     Also: look into `itertools.compress`
 16. Use dictionary comprehensions when creating a dictionary that is a subset of another dict.
+17. `collections.namedtuple` to improve readability when accessing list or tuple elements by
+    position! However, they are immutable.
+18. Use `collections.ChainMap` to perform lookups under multiple dictionaries (without merging them)
 """
